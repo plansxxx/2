@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import SectionHeading from '../components/common/SectionHeading';
 import InteractiveBodyMap from '../components/symptoms/InteractiveBodyMap';
+import CategorySidebar from '../components/symptoms/CategorySidebar';
+import ContactSidebar from '../components/symptoms/ContactSidebar';
 
 const SymptomsPage = () => {
   const { t } = useTranslation();
@@ -20,22 +22,34 @@ const SymptomsPage = () => {
         </div>
       </div>
       
-      {/* Interactive Body Map Section */}
+      {/* Main Content */}
       <section className="py-16 bg-gray-50">
         <div className="container">
-          <SectionHeading 
-            title={t('symptoms.bodyMap.title')}
-            subtitle={t('symptoms.description')}
-            centered={true}
-          />
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <p className="text-center text-gray-600 mb-8">
-                {t('symptoms.bodyMap.instruction')}
-              </p>
-              
-              <InteractiveBodyMap />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Left Sidebar - Categories */}
+            <div className="lg:col-span-3">
+              <CategorySidebar />
+            </div>
+
+            {/* Center - Interactive Body Map */}
+            <div className="lg:col-span-6">
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    {t('symptoms.bodyMap.title')}
+                  </h2>
+                  <p className="text-gray-600">
+                    {t('symptoms.description')}
+                  </p>
+                </div>
+                
+                <InteractiveBodyMap />
+              </div>
+            </div>
+
+            {/* Right Sidebar - Contact Form */}
+            <div className="lg:col-span-3">
+              <ContactSidebar />
             </div>
           </div>
         </div>

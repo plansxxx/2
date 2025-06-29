@@ -1,15 +1,16 @@
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
-import { blogPosts } from '../../data/blogPosts';
+import { getRecentBlogPosts } from '../../data/blogPosts';
 import BlogCard from '../blog/BlogCard';
 
-const BlogSection = () => {
+const BlogSection = memo(() => {
   const { t } = useTranslation();
   
-  // Only show 3 blog posts on homepage
-  const recentPosts = blogPosts.slice(0, 3);
+  // Get recent posts with performance optimization
+  const recentPosts = getRecentBlogPosts(3);
 
   return (
     <section className="section bg-gray-50">
@@ -20,23 +21,29 @@ const BlogSection = () => {
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {recentPosts.map((post) => (
-            <BlogCard key={post.id} post={post} />
+          {recentPosts.map((post, index) => (
+            <BlogCard 
+              key={post.id} 
+              post={post} 
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
           ))}
         </div>
         
         <div className="mt-12 text-center">
           <Link 
             to="/blog" 
-            className="btn btn-outline inline-flex items-center"
+            className="btn btn-outline inline-flex items-center hover:bg-primary-600 hover:text-white transition-all duration-300"
           >
             {t('home.blog.viewAll')}
-            <ChevronRight size={20} className="ml-2" />
+            <ChevronRight size={20} className="ml-2 transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </div>
       </div>
     </section>
   );
-};
+});
+
+BlogSection.displayName = 'BlogSection';
 
 export default BlogSection;

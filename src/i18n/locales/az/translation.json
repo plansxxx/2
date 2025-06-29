@@ -66,6 +66,9 @@
     "title": "Simptomlar və Müalicə",
     "subtitle": "İnteraktiv Bədən Xəritəsi",
     "description": "Ümumi ortopedik vəziyyətlər və müalicə seçimləri haqqında məlumat əldə etmək üçün istənilən bədən hissəsinə klikləyin.",
+    "categories": {
+      "title": "Müalicə Sahələri"
+    },
     "bodyMap": {
       "title": "İnteraktiv Bədən Xəritəsi",
       "instruction": "Simptomları və müalicələri kəşf etmək üçün vurğulanan istənilən sahəyə klikləyin",

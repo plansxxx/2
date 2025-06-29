@@ -61,6 +61,9 @@
     "title": "Symptoms & Treatment",
     "subtitle": "Interactive Body Map",
     "description": "Click on any body part to learn about common orthopedic conditions and treatment options.",
+    "categories": {
+      "title": "Treatment Areas"
+    },
     "bodyMap": {
       "title": "Interactive Body Map",
       "instruction": "Click on any highlighted area to explore symptoms and treatments",
