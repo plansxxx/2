@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
@@ -10,7 +10,7 @@ interface FormData {
   message: string;
 }
 
-const ContactSidebar = () => {
+const ContactSidebar = memo(() => {
   const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,7 +22,7 @@ const ContactSidebar = () => {
     reset
   } = useForm<FormData>();
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = useCallback(async (data: FormData) => {
     setIsSubmitting(true);
     
     // Simulate form submission
@@ -35,10 +35,10 @@ const ContactSidebar = () => {
     
     // Reset success message after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000);
-  };
+  }, [reset]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 sticky top-24">
       {/* Contact Form */}
       <div className="bg-white rounded-lg shadow-lg p-6">
         <h3 className="text-xl font-bold text-gray-900 mb-6">
@@ -123,7 +123,7 @@ const ContactSidebar = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full btn btn-primary flex items-center justify-center space-x-2"
+              className="w-full btn btn-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
@@ -180,6 +180,8 @@ const ContactSidebar = () => {
       </div>
     </div>
   );
-};
+});
+
+ContactSidebar.displayName = 'ContactSidebar';
 
 export default ContactSidebar;

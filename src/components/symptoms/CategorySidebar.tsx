@@ -1,3 +1,4 @@
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -10,7 +11,7 @@ import {
   ChevronRight 
 } from 'lucide-react';
 
-const CategorySidebar = () => {
+const CategorySidebar = memo(() => {
   const { t } = useTranslation();
   const location = useLocation();
 
@@ -81,7 +82,7 @@ const CategorySidebar = () => {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="bg-white rounded-lg shadow-lg p-6 sticky top-24">
       <h3 className="text-xl font-bold text-gray-900 mb-6">
         {t('symptoms.categories.title')}
       </h3>
@@ -96,9 +97,9 @@ const CategorySidebar = () => {
               key={category.id}
               to={category.path}
               className={`
-                flex items-center justify-between p-4 rounded-lg border transition-all duration-200 group
+                flex items-center justify-between p-4 rounded-lg border transition-all duration-200 group hover:shadow-sm
                 ${isActive 
-                  ? `${category.bgColor} ${category.borderColor} ${category.color}` 
+                  ? `${category.bgColor} ${category.borderColor} ${category.color} shadow-sm` 
                   : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                 }
               `}
@@ -108,13 +109,13 @@ const CategorySidebar = () => {
                   size={20} 
                   className={isActive ? category.color : 'text-gray-500 group-hover:text-gray-700'} 
                 />
-                <span className={`font-medium ${isActive ? category.color : 'text-gray-700 group-hover:text-gray-900'}`}>
+                <span className={`font-medium text-sm ${isActive ? category.color : 'text-gray-700 group-hover:text-gray-900'}`}>
                   {category.title}
                 </span>
               </div>
               <ChevronRight 
                 size={16} 
-                className={`transition-transform ${isActive ? category.color : 'text-gray-400 group-hover:text-gray-600'} ${isActive ? 'transform rotate-90' : ''}`} 
+                className={`transition-transform duration-200 ${isActive ? `${category.color} transform rotate-90` : 'text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1'}`} 
               />
             </Link>
           );
@@ -122,6 +123,8 @@ const CategorySidebar = () => {
       </div>
     </div>
   );
-};
+});
+
+CategorySidebar.displayName = 'CategorySidebar';
 
 export default CategorySidebar;
