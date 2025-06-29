@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { Baby } from 'lucide-react';
 
 interface TooltipData {
   title: string;
@@ -76,8 +77,7 @@ const InteractiveBodyMap = () => {
       'wrist-hand': '#f59e0b',
       'hip': '#a855f7',
       'knee': '#ef4444',
-      'foot-ankle': '#22c55e',
-      'pediatric-orthopedics': '#fbbf24'
+      'foot-ankle': '#22c55e'
     };
 
     const isHovered = hoveredPart === bodyPart;
@@ -95,17 +95,19 @@ const InteractiveBodyMap = () => {
 
   return (
     <div className="relative w-full max-w-4xl mx-auto" ref={mapRef}>
-      {/* Single Front View */}
+      {/* Single Front View - Properly Centered */}
       <div className="relative">
-        <h3 className="text-lg font-semibold text-center mb-4 text-gray-700">Interactive Body Map</h3>
+        <h3 className="text-lg font-semibold text-center mb-4 text-gray-700">
+          {t('symptoms.bodyMap.title')}
+        </h3>
         <div className="relative bg-gray-50 rounded-lg p-8">
-          <div className="relative inline-block w-full max-w-md mx-auto">
-            {/* Base SVG Body - Using Front.svg */}
-            <div className="relative w-full h-auto">
+          <div className="relative flex justify-center">
+            <div className="relative w-full max-w-sm">
+              {/* Base SVG Body - Using Front.svg */}
               <img 
                 src="/img/Front.svg" 
                 alt="Front body view"
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain mx-auto"
               />
               
               {/* Interactive overlay SVG for clickable areas - precisely positioned */}
@@ -214,20 +216,17 @@ const InteractiveBodyMap = () => {
                   onMouseEnter={(e) => handleBodyPartHover('foot-ankle', e)}
                   onMouseLeave={closeTooltip}
                 />
-
-                {/* Pediatric Indicator - positioned to the side for visibility */}
-                <circle 
-                  cx="340" cy="520" r="22"
-                  style={{ ...getBodyPartStyle('pediatric-orthopedics'), pointerEvents: 'auto' }}
-                  onClick={() => handleBodyPartClick('pediatric-orthopedics')}
-                  onMouseEnter={(e) => handleBodyPartHover('pediatric-orthopedics', e)}
-                  onMouseLeave={closeTooltip}
-                />
-                
-                {/* Pediatric Icon */}
-                <text x="340" y="528" textAnchor="middle" fontSize="16" fill="#92400e" pointerEvents="none">👶</text>
               </svg>
             </div>
+
+            {/* Pediatric Orthopedics Button - Bottom Right Corner */}
+            <button
+              onClick={() => handleBodyPartClick('pediatric-orthopedics')}
+              className="absolute bottom-4 right-4 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-3 rounded-lg shadow-lg transition-all duration-300 flex items-center space-x-2 text-sm font-medium"
+            >
+              <Baby size={20} />
+              <span>{t('symptoms.pediatric.title')}</span>
+            </button>
           </div>
         </div>
       </div>
@@ -247,35 +246,31 @@ const InteractiveBodyMap = () => {
         </div>
       )}
 
-      {/* Legend */}
-      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 text-sm">
+      {/* Legend - All Translated */}
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm">
         <div className="flex items-center">
           <div className="w-4 h-4 rounded bg-blue-200 border border-blue-400 mr-2"></div>
-          <span>Shoulder</span>
+          <span>{t('symptoms.bodyMap.tooltips.shoulder.title')}</span>
         </div>
         <div className="flex items-center">
           <div className="w-4 h-4 rounded bg-emerald-200 border border-emerald-400 mr-2"></div>
-          <span>Elbow</span>
+          <span>{t('symptoms.bodyMap.tooltips.elbow.title')}</span>
         </div>
         <div className="flex items-center">
           <div className="w-4 h-4 rounded bg-amber-200 border border-amber-400 mr-2"></div>
-          <span>Wrist/Hand</span>
+          <span>{t('symptoms.bodyMap.tooltips.wrist-hand.title')}</span>
         </div>
         <div className="flex items-center">
           <div className="w-4 h-4 rounded bg-purple-200 border border-purple-400 mr-2"></div>
-          <span>Hip</span>
+          <span>{t('symptoms.bodyMap.tooltips.hip.title')}</span>
         </div>
         <div className="flex items-center">
           <div className="w-4 h-4 rounded bg-red-200 border border-red-400 mr-2"></div>
-          <span>Knee</span>
+          <span>{t('symptoms.bodyMap.tooltips.knee.title')}</span>
         </div>
         <div className="flex items-center">
           <div className="w-4 h-4 rounded bg-green-200 border border-green-400 mr-2"></div>
-          <span>Foot/Ankle</span>
-        </div>
-        <div className="flex items-center">
-          <div className="w-4 h-4 rounded bg-yellow-200 border border-yellow-400 mr-2"></div>
-          <span>Pediatric</span>
+          <span>{t('symptoms.bodyMap.tooltips.foot-ankle.title')}</span>
         </div>
       </div>
     </div>
