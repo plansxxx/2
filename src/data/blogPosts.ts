@@ -12,6 +12,16 @@ export interface BlogPost {
   image: string;
 }
 
+export const categories = [
+  'Shoulder Conditions',
+  'Elbow Conditions', 
+  'Knee Conditions',
+  'Pediatric Orthopedics',
+  'Hand & Wrist',
+  'General Orthopedics',
+  'Sports Medicine'
+];
+
 export const blogPosts: BlogPost[] = [
   // Shoulder Pain & Injuries
   {
