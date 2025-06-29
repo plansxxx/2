@@ -219,10 +219,12 @@ const InteractiveBodyMap = () => {
               </svg>
             </div>
 
-            {/* Pediatric Orthopedics Button - Bottom Right Corner */}
+            {/* Pediatric Orthopedics Button - Bottom Right Corner - Hoverable & Transparent */}
             <button
               onClick={() => handleBodyPartClick('pediatric-orthopedics')}
-              className="absolute bottom-4 right-4 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-3 rounded-lg shadow-lg transition-all duration-300 flex items-center space-x-2 text-sm font-medium"
+              onMouseEnter={(e) => handleBodyPartHover('pediatric-orthopedics', e)}
+              onMouseLeave={closeTooltip}
+              className="absolute bottom-4 right-4 bg-yellow-400 bg-opacity-60 hover:bg-opacity-90 text-yellow-900 px-4 py-3 rounded-lg shadow-lg transition-all duration-300 flex items-center space-x-2 text-sm font-medium border border-yellow-500 backdrop-blur-sm"
             >
               <Baby size={20} />
               <span>{t('symptoms.pediatric.title')}</span>

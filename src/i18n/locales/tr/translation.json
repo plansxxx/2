@@ -66,6 +66,9 @@
     "title": "Semptomlar ve Tedavi",
     "subtitle": "İnteraktif Vücut Haritası",
     "description": "Yaygın ortopedik durumlar ve tedavi seçenekleri hakkında bilgi edinmek için herhangi bir vücut bölümüne tıklayın.",
+    "categories": {
+      "title": "Tedavi Alanları"
+    },
     "bodyMap": {
       "title": "İnteraktif Vücut Haritası",
       "instruction": "Semptomları ve tedavileri keşfetmek için vurgulanan herhangi bir alana tıklayın",
@@ -102,7 +105,7 @@
     },
     "shoulder": {
       "title": "Omuz Ağrısı ve Durumları",
-      "overview": "Omuz, vücuttaki en hareketli eklemlerden biridir ve bu da onu çeşitli yaralanma ve durumlara karşı hassas hale getirir. Kapsamlı yaklaşımımız hem akut yaralanmaları hem de kronik durumları ele alır.",
+      "overview": "Omuz, vücuttaki en hareketli eklemlerden biridir ve bu da onu çeşitli yaralanma ve durumlara karşı hassas hale getirir. Kapsamlı yaklaşımımız hem akut yaralanmaları hem de kroniki durumları ele alır.",
       "causes": {
         "title": "Yaygın Nedenler",
         "items": [

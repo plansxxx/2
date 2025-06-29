@@ -1,142 +1,662 @@
 export interface BlogPost {
-  id: number;
+  id: string;
+  title: string;
   slug: string;
-  title: {
-    az: string;
-    en: string;
-    tr: string;
-  };
-  excerpt: {
-    az: string;
-    en: string;
-    tr: string;
-  };
-  content: {
-    az: string;
-    en: string;
-    tr: string;
-  };
-  category: {
-    id: number;
-    name: {
-      az: string;
-      en: string;
-      tr: string;
-    };
-  };
-  image: string;
+  excerpt: string;
+  content: string;
   author: string;
-  date: string;
+  publishedAt: string;
+  category: string;
+  tags: string[];
   readTime: number;
+  image: string;
 }
 
-export const categories = [
-  {
-    id: 1,
-    name: {
-      az: "Ortopediya",
-      en: "Orthopedics",
-      tr: "Ortopedi"
-    }
-  },
-  {
-    id: 2,
-    name: {
-      az: "Travmatologiya",
-      en: "Traumatology",
-      tr: "Travmatoloji"
-    }
-  },
-  {
-    id: 3,
-    name: {
-      az: "İdman Təbabəti",
-      en: "Sports Medicine",
-      tr: "Spor Hekimliği"
-    }
-  },
-  {
-    id: 4,
-    name: {
-      az: "Sağlam Həyat",
-      en: "Healthy Living",
-      tr: "Sağlıklı Yaşam"
-    }
-  }
-];
-
 export const blogPosts: BlogPost[] = [
+  // Shoulder Pain & Injuries
   {
-    id: 1,
-    slug: "common-knee-injuries-and-treatments",
-    title: {
-      az: "Geniş yayılmış diz zədələri və müalicələri",
-      en: "Common Knee Injuries and Treatments",
-      tr: "Yaygın Diz Yaralanmaları ve Tedavileri"
-    },
-    excerpt: {
-      az: "Diz zədələri gündəlik həyatı məhdudlaşdıra bilər. Bu məqalədə ən çox rast gəlinən diz zədələri və onların müasir müalicə üsulları haqqında danışırıq.",
-      en: "Knee injuries can limit daily life. In this article, we discuss the most common knee injuries and their modern treatment methods.",
-      tr: "Diz yaralanmaları günlük hayatı kısıtlayabilir. Bu makalede, en yaygın diz yaralanmaları ve modern tedavi yöntemleri hakkında bilgi veriyoruz."
-    },
-    content: {
-      az: "# Geniş yayılmış diz zədələri və müalicələri\n\nDiz zədələri gündəlik həyatı məhdudlaşdıra bilər. Bu məqalədə ən çox rast gəlinən diz zədələri və onların müasir müalicə üsulları haqqında danışırıq.\n\n## Menisküs Cırılması\n\nMenisküs diz oynağında olan bir qığırdaq növüdür və diz oynağının stabilləşdirilməsinə kömək edir. Menisküs cırılması adətən ani dönmələr və ya ağır yük qaldırma zamanı baş verir.\n\n**Müalicə seçimləri:**\n\n- Konservativ müalicə: İstirahət, buz, kompressiya və yüksəklik (RICE)\n- Fiziki terapiya\n- Artroskopik cərrahiyyə\n\n## Ön Çarpaz Bağ (ACL) Cırılması\n\nACL zədələri adətən idman zamanı baş verir və diz oynağında stabilliyə təsir edir.\n\n**Müalicə seçimləri:**\n\n- Konservativ müalicə: Fiziki terapiya və diz breysi\n- Cərrahiyyə: ACL rekonstruksiyası\n\n## Osteoartrit\n\nDiz osteoartriti zamanla qığırdağın aşınması nəticəsində yaranır və ağrı, sərtlik və hərəkət məhdudiyyəti ilə nəticələnir.\n\n**Müalicə seçimləri:**\n\n- Çəki azaltma\n- Fiziki terapiya\n- Ağrıkəsici dərmanlar\n- Kortizon inyeksiyaları\n- Hialuron inyeksiyaları\n- Diz oynağı əvəzlənməsi\n\nDiz zədələri həyat keyfiyyətinizə ciddi təsir göstərə bilər, lakin müasir ortopedik müalicələr ağrısız və aktiv bir həyata qayıtmanıza kömək edə bilər. Diz probleminiz varsa, diaqnoz və müalicə üçün təcrübəli bir ortoped ilə məsləhətləşmək vacibdir.",
-      en: "# Common Knee Injuries and Treatments\n\nKnee injuries can limit daily life. In this article, we discuss the most common knee injuries and their modern treatment methods.\n\n## Meniscus Tear\n\nThe meniscus is a type of cartilage in the knee joint that helps stabilize the knee. Meniscus tears usually occur during sudden turns or heavy lifting.\n\n**Treatment options:**\n\n- Conservative treatment: Rest, ice, compression, and elevation (RICE)\n- Physical therapy\n- Arthroscopic surgery\n\n## Anterior Cruciate Ligament (ACL) Tear\n\nACL injuries usually occur during sports and affect stability in the knee joint.\n\n**Treatment options:**\n\n- Conservative treatment: Physical therapy and knee bracing\n- Surgery: ACL reconstruction\n\n## Osteoarthritis\n\nKnee osteoarthritis is caused by the wear and tear of cartilage over time, resulting in pain, stiffness, and limited mobility.\n\n**Treatment options:**\n\n- Weight loss\n- Physical therapy\n- Pain medications\n- Corticosteroid injections\n- Hyaluronic acid injections\n- Knee joint replacement\n\nKnee injuries can seriously impact your quality of life, but modern orthopedic treatments can help you return to a pain-free and active life. If you have a knee problem, it's important to consult with an experienced orthopedist for diagnosis and treatment.",
-      tr: "# Yaygın Diz Yaralanmaları ve Tedavileri\n\nDiz yaralanmaları günlük hayatı kısıtlayabilir. Bu makalede, en yaygın diz yaralanmaları ve modern tedavi yöntemleri hakkında bilgi veriyoruz.\n\n## Menisküs Yırtılması\n\nMenisküs, diz eklemini stabilize etmeye yardımcı olan bir kıkırdak türüdür. Menisküs yırtıkları genellikle ani dönüşler veya ağır kaldırma sırasında meydana gelir.\n\n**Tedavi seçenekleri:**\n\n- Konservatif tedavi: Dinlenme, buz, kompresyon ve yükseltme (RICE)\n- Fizik tedavi\n- Artroskopik cerrahi\n\n## Ön Çapraz Bağ (ACL) Yırtılması\n\nACL yaralanmaları genellikle spor sırasında meydana gelir ve diz eklemindeki stabiliteyi etkiler.\n\n**Tedavi seçenekleri:**\n\n- Konservatif tedavi: Fizik tedavi ve diz breysi\n- Cerrahi: ACL rekonstrüksiyonu\n\n## Osteoartrit\n\nDiz osteoartriti, zamanla kıkırdağın aşınması sonucu oluşur ve ağrı, sertlik ve hareket kısıtlılığına neden olur.\n\n**Tedavi seçenekleri:**\n\n- Kilo kaybı\n- Fizik tedavi\n- Ağrı kesiciler\n- Kortizon enjeksiyonları\n- Hyaluronik asit enjeksiyonları\n- Diz eklemi replasmanı\n\nDiz yaralanmaları yaşam kalitenizi ciddi şekilde etkileyebilir, ancak modern ortopedik tedaviler ağrısız ve aktif bir yaşama dönmenize yardımcı olabilir. Diz sorununuz varsa, teşhis ve tedavi için deneyimli bir ortopedistle görüşmek önemlidir."
-    },
-    category: categories[0],
-    image: "https://images.pexels.com/photos/3768911/pexels-photo-3768911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    author: "Op. Dr. Gürkan Eryanılmaz",
-    date: "2024-03-15",
-    readTime: 5
+    id: '1',
+    title: 'Understanding Rotator Cuff Tears: Causes, Symptoms, and Treatment Options',
+    slug: 'understanding-rotator-cuff-tears',
+    excerpt: 'Learn about the most common shoulder injury affecting millions worldwide, including modern treatment approaches and recovery expectations.',
+    content: `
+      <h2>What is a Rotator Cuff Tear?</h2>
+      <p>The rotator cuff is a group of four muscles and tendons that surround the shoulder joint, providing stability and enabling a wide range of motion. When one or more of these tendons tear, it can cause significant pain and functional limitation.</p>
+      
+      <h3>Types of Rotator Cuff Tears</h3>
+      <ul>
+        <li><strong>Partial tears:</strong> The tendon is damaged but not completely severed</li>
+        <li><strong>Full-thickness tears:</strong> The tendon is completely torn through</li>
+        <li><strong>Acute tears:</strong> Sudden injury from trauma or accident</li>
+        <li><strong>Degenerative tears:</strong> Gradual wear and tear over time</li>
+      </ul>
+
+      <h3>Common Symptoms</h3>
+      <p>Patients with rotator cuff tears typically experience:</p>
+      <ul>
+        <li>Pain that worsens at night or when lying on the affected side</li>
+        <li>Weakness when lifting or rotating the arm</li>
+        <li>Crackling sensation when moving the shoulder</li>
+        <li>Limited range of motion</li>
+      </ul>
+
+      <h3>Treatment Approaches</h3>
+      <p>Treatment depends on the size and type of tear, patient age, and activity level. Options include:</p>
+      
+      <h4>Conservative Treatment</h4>
+      <ul>
+        <li>Physical therapy to strengthen surrounding muscles</li>
+        <li>Anti-inflammatory medications</li>
+        <li>Corticosteroid injections</li>
+        <li>Activity modification</li>
+      </ul>
+
+      <h4>Surgical Treatment</h4>
+      <p>When conservative treatment fails, arthroscopic repair offers excellent outcomes with minimal invasiveness. The procedure involves reattaching the torn tendon to the bone using specialized anchors.</p>
+
+      <h3>Recovery and Rehabilitation</h3>
+      <p>Recovery typically takes 4-6 months, with physical therapy playing a crucial role in restoring strength and function. Most patients return to their previous activity level with proper rehabilitation.</p>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-12-15',
+    category: 'Shoulder Conditions',
+    tags: ['rotator cuff', 'shoulder pain', 'arthroscopic surgery', 'sports medicine'],
+    readTime: 8,
+    image: 'https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg'
   },
   {
-    id: 2,
-    slug: "sports-injury-prevention-tips",
-    title: {
-      az: "İdman zədələrinin qarşısını almaq üçün məsləhətlər",
-      en: "Sports Injury Prevention Tips",
-      tr: "Spor Yaralanmalarını Önleme İpuçları"
-    },
-    excerpt: {
-      az: "İdman zədələri idmançılar üçün ən böyük maneələrdən biridir. Bu məqalədə ən çox rast gəlinən idman zədələrini necə önləyə biləcəyinizi öyrənin.",
-      en: "Sports injuries are one of the biggest obstacles for athletes. Learn how to prevent the most common sports injuries in this article.",
-      tr: "Spor yaralanmaları, sporcular için en büyük engellerden biridir. Bu makalede, en yaygın spor yaralanmalarını nasıl önleyebileceğinizi öğrenin."
-    },
-    content: {
-      az: "# İdman zədələrinin qarşısını almaq üçün məsləhətlər\n\nİdman zədələri idmançılar üçün ən böyük maneələrdən biridir. Bu məqalədə ən çox rast gəlinən idman zədələrini necə önləyə biləcəyinizi öyrənin.\n\n## Düzgün istiləşmə\n\nHər hansı bir məşq və ya yarışdan əvvəl düzgün istiləşmə çox vacibdir. İstiləşmə əzələlərinizi hazırlayır və onları daha elastik edir, bu da zədə riskini azaldır.\n\n**Məsləhətlər:**\n\n- Ən azı 5-10 dəqiqə yüngül kardio ilə başlayın\n- Dinamik stretçinq edən\n- Tədrici olaraq intensivliyi artırın\n\n## Düzgün texnika\n\nDüzgün texnikadan istifadə etmək zədə riskini əhəmiyyətli dərəcədə azaldır. Bu, idman növünüz üçün düzgün texnikanı öyrənməyi və məşq etməyi əhatə edir.\n\n**Məsləhətlər:**\n\n- Peşəkar bir məşqçi ilə işləyin\n- Texnikanızı tez-tez yoxlayın\n- Yorulduqda texnikanızın pozulmasına icazə verməyin\n\n## Düzgün avadanlıq\n\nİdman növünüz üçün düzgün avadanlıqdan istifadə etmək zədə riskini azalda bilər.\n\n**Məsləhətlər:**\n\n- Sizə uyğun ölçüdə avadanlıq seçin\n- Köhnəlmiş və ya zədələnmiş avadanlığı dəyişdirin\n- İdman növünüz üçün düzgün qoruyucu geyimdən istifadə edin\n\n## Bərpa vaxtı\n\nBədəninizə bərpa olmaq üçün kifayət qədər vaxt vermək zədə riskini azaldır.\n\n**Məsləhətlər:**\n\n- Adekvat yuxu alın\n- Məşqlər arasında istirahət günləri əlavə edin\n- Aktiv bərpadan istifadə edin (yüngül aktivlik, stretçinq)\n\n## Balanced qidalanma\n\nBalanslaşdırılmış qidalanma bədəninizin optimal şəkildə işləməsinə və zədələrdən daha tez sağalmasına kömək edə bilər.\n\n**Məsləhətlər:**\n\n- Adekvat protein qəbul edin\n- Hidrasiya olun\n- Məşqdən əvvəl və sonra düzgün qidalanın\n\nBu məsləhətləri izləmək idman zədəsi riskinizi əhəmiyyətli dərəcədə azalda bilər. Ancaq hər hansı bir zədə halında, daha çox zərərin qarşısını almaq üçün tez bir zamanda tibbi yardım almaq vacibdir.",
-      en: "# Sports Injury Prevention Tips\n\nSports injuries are one of the biggest obstacles for athletes. Learn how to prevent the most common sports injuries in this article.\n\n## Proper Warm-up\n\nProper warm-up before any exercise or competition is crucial. Warming up prepares your muscles and makes them more elastic, which reduces the risk of injury.\n\n**Tips:**\n\n- Start with at least 5-10 minutes of light cardio\n- Perform dynamic stretching\n- Gradually increase intensity\n\n## Proper Technique\n\nUsing proper technique significantly reduces the risk of injury. This involves learning and practicing the correct technique for your sport.\n\n**Tips:**\n\n- Work with a professional coach\n- Regularly check your technique\n- Don't allow your technique to deteriorate when you're tired\n\n## Proper Equipment\n\nUsing the right equipment for your sport can reduce the risk of injury.\n\n**Tips:**\n\n- Choose equipment that fits you properly\n- Replace worn or damaged equipment\n- Use the correct protective gear for your sport\n\n## Recovery Time\n\nGiving your body enough time to recover reduces the risk of injury.\n\n**Tips:**\n\n- Get adequate sleep\n- Include rest days between workouts\n- Use active recovery (light activity, stretching)\n\n## Balanced Nutrition\n\nA balanced diet can help your body function optimally and recover more quickly from injuries.\n\n**Tips:**\n\n- Consume adequate protein\n- Stay hydrated\n- Eat properly before and after exercise\n\nFollowing these tips can significantly reduce your risk of sports injuries. However, in case of any injury, it's important to seek medical help promptly to prevent further damage.",
-      tr: "# Spor Yaralanmalarını Önleme İpuçları\n\nSpor yaralanmaları, sporcular için en büyük engellerden biridir. Bu makalede, en yaygın spor yaralanmalarını nasıl önleyebileceğinizi öğrenin.\n\n## Doğru Isınma\n\nHerhangi bir egzersiz veya yarışma öncesinde doğru ısınma çok önemlidir. Isınma, kaslarınızı hazırlar ve onları daha elastik hale getirir, bu da yaralanma riskini azaltır.\n\n**İpuçları:**\n\n- En az 5-10 dakika hafif kardiyoyla başlayın\n- Dinamik esneme yapın\n- Yoğunluğu kademeli olarak artırın\n\n## Doğru Teknik\n\nDoğru teknik kullanmak, yaralanma riskini önemli ölçüde azaltır. Bu, sporunuz için doğru tekniği öğrenmeyi ve pratik yapmayı içerir.\n\n**İpuçları:**\n\n- Profesyonel bir koçla çalışın\n- Tekniğinizi düzenli olarak kontrol edin\n- Yorulduğunuzda tekniğinizin bozulmasına izin vermeyin\n\n## Doğru Ekipman\n\nSporunuz için doğru ekipmanı kullanmak yaralanma riskini azaltabilir.\n\n**İpuçları:**\n\n- Size uygun ekipmanı seçin\n- Yıpranmış veya hasarlı ekipmanı değiştirin\n- Sporunuz için doğru koruyucu giysiyi kullanın\n\n## İyileşme Süresi\n\nVücudunuza iyileşmesi için yeterli zaman vermek yaralanma riskini azaltır.\n\n**İpuçları:**\n\n- Yeterli uyku alın\n- Antrenmanlar arasında dinlenme günleri ekleyin\n- Aktif iyileşme kullanın (hafif aktivite, esneme)\n\n## Dengeli Beslenme\n\nDengeli bir diyet, vücudunuzun optimal şekilde çalışmasına ve yaralanmalardan daha hızlı iyileşmesine yardımcı olabilir.\n\n**İpuçları:**\n\n- Yeterli protein tüketin\n- Hidrate kalın\n- Egzersiz öncesi ve sonrası doğru beslenin\n\nBu ipuçlarını takip etmek, spor yaralanması riskinizi önemli ölçüde azaltabilir. Ancak, herhangi bir yaralanma durumunda, daha fazla hasarı önlemek için hemen tıbbi yardım almak önemlidir."
-    },
-    category: categories[2],
-    image: "https://images.pexels.com/photos/8851636/pexels-photo-8851636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    author: "Op. Dr. Gürkan Eryanılmaz",
-    date: "2024-02-28",
-    readTime: 6
+    id: '2',
+    title: 'Frozen Shoulder: Breaking Through the Stiffness',
+    slug: 'frozen-shoulder-treatment-guide',
+    excerpt: 'Comprehensive guide to understanding and treating adhesive capsulitis, including the latest therapeutic approaches.',
+    content: `
+      <h2>Understanding Frozen Shoulder (Adhesive Capsulitis)</h2>
+      <p>Frozen shoulder is a condition characterized by stiffness and pain in the shoulder joint. It develops gradually, worsens over time, and can significantly impact daily activities.</p>
+
+      <h3>The Three Stages of Frozen Shoulder</h3>
+      <ol>
+        <li><strong>Freezing Stage (2-9 months):</strong> Gradual onset of pain and stiffness</li>
+        <li><strong>Frozen Stage (4-12 months):</strong> Pain may decrease but stiffness remains severe</li>
+        <li><strong>Thawing Stage (5-24 months):</strong> Gradual return of motion</li>
+      </ol>
+
+      <h3>Risk Factors</h3>
+      <ul>
+        <li>Age (40-60 years)</li>
+        <li>Diabetes</li>
+        <li>Thyroid disorders</li>
+        <li>Prolonged immobilization</li>
+        <li>Previous shoulder injury</li>
+      </ul>
+
+      <h3>Treatment Strategies</h3>
+      <p>Early intervention can significantly improve outcomes and reduce the duration of symptoms.</p>
+
+      <h4>Non-Surgical Approaches</h4>
+      <ul>
+        <li>Targeted physical therapy</li>
+        <li>Corticosteroid injections</li>
+        <li>Hydrodilatation (joint distension)</li>
+        <li>Pain management techniques</li>
+      </ul>
+
+      <h4>Surgical Options</h4>
+      <p>For severe cases, arthroscopic capsular release can provide rapid improvement in range of motion and pain relief.</p>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-12-10',
+    category: 'Shoulder Conditions',
+    tags: ['frozen shoulder', 'adhesive capsulitis', 'shoulder stiffness', 'physical therapy'],
+    readTime: 6,
+    image: 'https://images.pexels.com/photos/7659566/pexels-photo-7659566.jpeg'
+  },
+
+  // Elbow Conditions
+  {
+    id: '3',
+    title: 'Tennis Elbow: More Than Just a Sports Injury',
+    slug: 'tennis-elbow-comprehensive-treatment',
+    excerpt: 'Discover why tennis elbow affects people beyond tennis players and learn about effective treatment strategies.',
+    content: `
+      <h2>What is Tennis Elbow?</h2>
+      <p>Tennis elbow, or lateral epicondylitis, is a painful condition caused by overuse of the muscles and tendons in the forearm. Despite its name, it affects many people who don't play tennis.</p>
+
+      <h3>Common Causes</h3>
+      <ul>
+        <li>Repetitive gripping activities</li>
+        <li>Computer work and typing</li>
+        <li>Manual labor and tools use</li>
+        <li>Racquet sports</li>
+        <li>Age-related tendon degeneration</li>
+      </ul>
+
+      <h3>Symptoms and Diagnosis</h3>
+      <p>Key symptoms include:</p>
+      <ul>
+        <li>Pain on the outside of the elbow</li>
+        <li>Weakness in grip strength</li>
+        <li>Pain when lifting or gripping objects</li>
+        <li>Stiffness in the morning</li>
+      </ul>
+
+      <h3>Treatment Protocol</h3>
+      <h4>Conservative Management</h4>
+      <ul>
+        <li>Rest and activity modification</li>
+        <li>Eccentric strengthening exercises</li>
+        <li>Bracing and support</li>
+        <li>Platelet-rich plasma (PRP) therapy</li>
+      </ul>
+
+      <h4>Advanced Treatments</h4>
+      <p>For persistent cases, minimally invasive procedures such as tendon release or debridement can provide excellent long-term results.</p>
+
+      <h3>Prevention Strategies</h3>
+      <ul>
+        <li>Proper technique in sports and work</li>
+        <li>Regular strengthening exercises</li>
+        <li>Ergonomic workplace setup</li>
+        <li>Gradual increase in activity levels</li>
+      </ul>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-12-08',
+    category: 'Elbow Conditions',
+    tags: ['tennis elbow', 'lateral epicondylitis', 'elbow pain', 'overuse injury'],
+    readTime: 7,
+    image: 'https://images.pexels.com/photos/7659567/pexels-photo-7659567.jpeg'
+  },
+
+  // Knee Conditions
+  {
+    id: '4',
+    title: 'ACL Injuries: From Diagnosis to Full Recovery',
+    slug: 'acl-injury-complete-guide',
+    excerpt: 'Complete guide to ACL injuries, including modern reconstruction techniques and rehabilitation protocols.',
+    content: `
+      <h2>Understanding ACL Injuries</h2>
+      <p>The anterior cruciate ligament (ACL) is one of the key ligaments that help stabilize the knee joint. ACL injuries are common in sports that involve sudden stops, jumps, or changes in direction.</p>
+
+      <h3>Mechanism of Injury</h3>
+      <ul>
+        <li>Non-contact pivoting movements</li>
+        <li>Landing from jumps</li>
+        <li>Sudden deceleration</li>
+        <li>Direct contact to the knee</li>
+      </ul>
+
+      <h3>Diagnosis and Assessment</h3>
+      <p>Accurate diagnosis involves:</p>
+      <ul>
+        <li>Physical examination tests</li>
+        <li>MRI imaging</li>
+        <li>Assessment of associated injuries</li>
+        <li>Functional testing</li>
+      </ul>
+
+      <h3>Treatment Options</h3>
+      <h4>Non-Surgical Management</h4>
+      <p>Suitable for older, less active patients or partial tears:</p>
+      <ul>
+        <li>Intensive physical therapy</li>
+        <li>Bracing for stability</li>
+        <li>Activity modification</li>
+      </ul>
+
+      <h4>Surgical Reconstruction</h4>
+      <p>Recommended for active individuals and complete tears. Modern techniques include:</p>
+      <ul>
+        <li>Hamstring tendon grafts</li>
+        <li>Patellar tendon grafts</li>
+        <li>All-inside reconstruction techniques</li>
+        <li>Anatomic tunnel placement</li>
+      </ul>
+
+      <h3>Rehabilitation Timeline</h3>
+      <ul>
+        <li><strong>0-2 weeks:</strong> Pain and swelling control</li>
+        <li><strong>2-6 weeks:</strong> Range of motion restoration</li>
+        <li><strong>6-12 weeks:</strong> Strength building</li>
+        <li><strong>3-6 months:</strong> Sport-specific training</li>
+        <li><strong>6-9 months:</strong> Return to sports</li>
+      </ul>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-12-05',
+    category: 'Knee Conditions',
+    tags: ['ACL injury', 'knee ligament', 'sports injury', 'knee reconstruction'],
+    readTime: 9,
+    image: 'https://images.pexels.com/photos/7659568/pexels-photo-7659568.jpeg'
   },
   {
-    id: 3,
-    slug: "understanding-joint-replacement-surgery",
-    title: {
-      az: "Oynaq əvəzlənməsi cərrahiyyəsini anlamaq",
-      en: "Understanding Joint Replacement Surgery",
-      tr: "Eklem Replasmanı Cerrahisini Anlamak"
-    },
-    excerpt: {
-      az: "Oynaq əvəzlənməsi cərrahiyyəsi nə zaman lazımdır? Əməliyyat necə keçirilir və nəyi gözləməlisiniz? Bu məqalədə bütün suallarınızı cavablandırırıq.",
-      en: "When is joint replacement surgery necessary? How is the operation performed and what should you expect? We answer all your questions in this article.",
-      tr: "Eklem replasmanı cerrahisi ne zaman gereklidir? Operasyon nasıl yapılır ve neler beklemelisiniz? Bu makalede tüm sorularınızı yanıtlıyoruz."
-    },
-    content: {
-      az: "# Oynaq əvəzlənməsi cərrahiyyəsini anlamaq\n\nOynaq əvəzlənməsi cərrahiyyəsi nə zaman lazımdır? Əməliyyat necə keçirilir və nəyi gözləməlisiniz? Bu məqalədə bütün suallarınızı cavablandırırıq.\n\n## Oynaq əvəzlənməsi nədir?\n\nOynaq əvəzlənməsi, zədələnmiş və ya xəstəliklə əlaqədar oynağın süni implantla əvəz edildiyi bir əməliyyatdır. Bu prosedur ağrını azaltmaq və oynağın funksiyasını yaxşılaşdırmaq üçün aparılır.\n\nƏn çox əvəz edilən oynaqlar bunlardır:\n\n- Diz oynağı\n- Bud oynağı\n- Çiyin oynağı\n- Dirsək oynağı\n- Bilək oynağı\n\n## Nə zaman oynaq əvəzlənməsi lazımdır?\n\nOynaq əvəzlənməsi adətən aşağıdakı hallarda tövsiyə olunur:\n\n- Şiddətli oynaq ağrısı gündəlik fəaliyyətləri məhdudlaşdırdıqda\n- Gəzmək, pilləkənləri qalxmaq və ya oturmaq və qalxmaq çətin olduqda\n- Oynaqda daimi şişkinlik və ya iltihablanma olduqda\n- Daha mühafizəkar müalicə üsulları, məsələn, fiziki terapiya və ya dərmanlar kömək etmədikdə\n\n## Əməliyyata hazırlıq\n\nƏməliyyatdan əvvəl aşağıdakı hazırlıq işlərini görməlisiniz:\n\n- Tam tibbi müayinə\n- Əməliyyatdan əvvəl fiziki terapiya\n- Evinizi bərpa dövrü üçün hazırlamaq\n- Potensial risklər və faydalar haqqında həkimlə ətraflı müzakirə\n\n## Əməliyyat prosesi\n\nOynaq əvəzlənməsi əməliyyatı adətən aşağıdakı mərhələləri əhatə edir:\n\n1. Anesteziya (ümumi və ya regional)\n2. Cərrahi kəsik\n3. Zədələnmiş oynağın çıxarılması\n4. Süni implantın yerləşdirilməsi\n5. Yaranın bağlanması\n\nƏməliyyat oynağın növündən asılı olaraq 1-3 saat çəkə bilər.\n\n## Bərpa prosesi\n\nOynaq əvəzlənməsindən sonra bərpa prosesi çox vacibdir və bir neçə ay davam edə bilər. Bu proses aşağıdakıları əhatə edir:\n\n- Xəstəxanada qalma (1-4 gün)\n- Fiziki terapiya\n- Ağrı idarəetməsi\n- Gündəlik fəaliyyətlərə tədricən qayıtma\n\n## Nəticə\n\nOynaq əvəzlənməsi cərrahiyyəsi oynaq ağrısı ilə mübarizə aparan bir çox insanın həyat keyfiyyətini əhəmiyyətli dərəcədə yaxşılaşdıra bilər. Müasir implantlar və cərrahi texnikalarla, əksər insanlar əməliyyatdan sonra ağrısız hərəkət qabiliyyəti və daha yaxşı həyat keyfiyyəti əldə edirlər.\n\nƏgər oynaq ağrısı həyatınıza mənfi təsir göstərirsə, ortoped ilə məsləhətləşin. Siz oynaq əvəzlənməsi üçün uyğun bir namizəd ola bilərsiniz.",
-      en: "# Understanding Joint Replacement Surgery\n\nWhen is joint replacement surgery necessary? How is the operation performed and what should you expect? We answer all your questions in this article.\n\n## What is Joint Replacement?\n\nJoint replacement is a surgical procedure where a damaged or diseased joint is replaced with an artificial implant. This procedure is performed to reduce pain and improve the function of the joint.\n\nThe most commonly replaced joints include:\n\n- Knee joint\n- Hip joint\n- Shoulder joint\n- Elbow joint\n- Ankle joint\n\n## When is Joint Replacement Necessary?\n\nJoint replacement is usually recommended in the following cases:\n\n- When severe joint pain limits daily activities\n- When walking, climbing stairs, or sitting and rising becomes difficult\n- When there is persistent swelling or inflammation in the joint\n- When more conservative treatment methods, such as physical therapy or medications, do not help\n\n## Preparation for Surgery\n\nBefore surgery, you should do the following preparatory work:\n\n- Complete medical examination\n- Pre-operative physical therapy\n- Prepare your home for the recovery period\n- Detailed discussion with the doctor about potential risks and benefits\n\n## The Surgical Process\n\nJoint replacement surgery usually involves the following stages:\n\n1. Anesthesia (general or regional)\n2. Surgical incision\n3. Removal of the damaged joint\n4. Placement of the artificial implant\n5. Closure of the wound\n\nThe operation can take 1-3 hours depending on the type of joint.\n\n## Recovery Process\n\nThe recovery process after joint replacement is very important and can last several months. This process includes:\n\n- Hospital stay (1-4 days)\n- Physical therapy\n- Pain management\n- Gradual return to daily activities\n\n## Conclusion\n\nJoint replacement surgery can significantly improve the quality of life for many people struggling with joint pain. With modern implants and surgical techniques, most people achieve pain-free mobility and a better quality of life after surgery.\n\nIf joint pain is negatively affecting your life, consult with an orthopedist. You may be a suitable candidate for joint replacement.",
-      tr: "# Eklem Replasmanı Cerrahisini Anlamak\n\nEklem replasmanı cerrahisi ne zaman gereklidir? Operasyon nasıl yapılır ve neler beklemelisiniz? Bu makalede tüm sorularınızı yanıtlıyoruz.\n\n## Eklem Replasmanı Nedir?\n\nEklem replasmanı, hasarlı veya hastalıklı bir eklemin yapay bir implantla değiştirildiği bir cerrahi işlemdir. Bu prosedür, ağrıyı azaltmak ve eklem fonksiyonunu iyileştirmek için yapılır.\n\nEn sık değiştirilen eklemler şunlardır:\n\n- Diz eklemi\n- Kalça eklemi\n- Omuz eklemi\n- Dirsek eklemi\n- Ayak bileği eklemi\n\n## Eklem Replasmanı Ne Zaman Gereklidir?\n\nEklem replasmanı genellikle aşağıdaki durumlarda önerilir:\n\n- Şiddetli eklem ağrısı günlük aktiviteleri kısıtladığında\n- Yürümek, merdiven çıkmak veya oturup kalkmak zorlaştığında\n- Eklemde sürekli şişlik veya iltihaplanma olduğunda\n- Fizik tedavi veya ilaçlar gibi daha konservatif tedavi yöntemleri yardımcı olmadığında\n\n## Cerrahi Öncesi Hazırlık\n\nCerrahi öncesinde aşağıdaki hazırlıkları yapmalısınız:\n\n- Tam tıbbi muayene\n- Ameliyat öncesi fizik tedavi\n- Evinizi iyileşme dönemi için hazırlamak\n- Potansiyel riskler ve faydalar hakkında doktorla detaylı görüşme\n\n## Cerrahi Süreç\n\nEklem replasmanı cerrahisi genellikle aşağıdaki aşamaları içerir:\n\n1. Anestezi (genel veya bölgesel)\n2. Cerrahi kesi\n3. Hasarlı eklemin çıkarılması\n4. Yapay implantın yerleştirilmesi\n5. Yaranın kapatılması\n\nOperasyon, eklem türüne bağlı olarak 1-3 saat sürebilir.\n\n## İyileşme Süreci\n\nEklem replasmanı sonrası iyileşme süreci çok önemlidir ve birkaç ay sürebilir. Bu süreç şunları içerir:\n\n- Hastanede kalış (1-4 gün)\n- Fizik tedavi\n- Ağrı yönetimi\n- Günlük aktivitelere kademeli dönüş\n\n## Sonuç\n\nEklem replasmanı cerrahisi, eklem ağrısıyla mücadele eden birçok insanın yaşam kalitesini önemli ölçüde iyileştirebilir. Modern implantlar ve cerrahi tekniklerle, çoğu insan ameliyattan sonra ağrısız hareket kabiliyeti ve daha iyi bir yaşam kalitesi elde eder.\n\nEklem ağrısı hayatınızı olumsuz etkiliyorsa, bir ortopedistle görüşün. Eklem replasmanı için uygun bir aday olabilirsiniz."
-    },
-    category: categories[0],
-    image: "https://images.pexels.com/photos/8460150/pexels-photo-8460150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    author: "Op. Dr. Gürkan Eryanılmaz",
-    date: "2024-01-10",
-    readTime: 8
+    id: '5',
+    title: 'Knee Replacement Surgery: What to Expect',
+    slug: 'knee-replacement-surgery-guide',
+    excerpt: 'Comprehensive guide to knee replacement surgery, including preparation, procedure, and recovery expectations.',
+    content: `
+      <h2>When is Knee Replacement Necessary?</h2>
+      <p>Knee replacement surgery is considered when conservative treatments have failed to provide adequate pain relief and functional improvement in patients with severe arthritis or joint damage.</p>
+
+      <h3>Types of Knee Replacement</h3>
+      <ul>
+        <li><strong>Total Knee Replacement:</strong> Replacement of all joint surfaces</li>
+        <li><strong>Partial Knee Replacement:</strong> Replacement of only the damaged compartment</li>
+        <li><strong>Revision Surgery:</strong> Replacement of a previous implant</li>
+      </ul>
+
+      <h3>Pre-Surgical Preparation</h3>
+      <ul>
+        <li>Comprehensive medical evaluation</li>
+        <li>Pre-operative physical therapy</li>
+        <li>Home preparation for recovery</li>
+        <li>Nutritional optimization</li>
+      </ul>
+
+      <h3>The Surgical Procedure</h3>
+      <p>Modern knee replacement surgery typically involves:</p>
+      <ul>
+        <li>Minimally invasive techniques</li>
+        <li>Computer-assisted navigation</li>
+        <li>Advanced implant materials</li>
+        <li>Multimodal pain management</li>
+      </ul>
+
+      <h3>Recovery Timeline</h3>
+      <ul>
+        <li><strong>Hospital stay:</strong> 1-3 days</li>
+        <li><strong>Initial recovery:</strong> 2-6 weeks</li>
+        <li><strong>Full recovery:</strong> 3-6 months</li>
+        <li><strong>Final outcome:</strong> 12 months</li>
+      </ul>
+
+      <h3>Long-term Outcomes</h3>
+      <p>With over 10,000 successful knee replacements performed, patients can expect:</p>
+      <ul>
+        <li>Significant pain reduction</li>
+        <li>Improved mobility and function</li>
+        <li>Return to daily activities</li>
+        <li>Implant longevity of 15-20 years</li>
+      </ul>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-12-01',
+    category: 'Knee Conditions',
+    tags: ['knee replacement', 'total knee arthroplasty', 'arthritis', 'joint surgery'],
+    readTime: 10,
+    image: 'https://images.pexels.com/photos/7659569/pexels-photo-7659569.jpeg'
+  },
+
+  // Hip Problems
+  {
+    id: '6',
+    title: 'Developmental Hip Dysplasia: Early Detection and Treatment',
+    slug: 'developmental-hip-dysplasia-guide',
+    excerpt: 'Essential information about hip dysplasia in infants and children, including screening, diagnosis, and treatment options.',
+    content: `
+      <h2>Understanding Developmental Hip Dysplasia (DDH)</h2>
+      <p>Developmental hip dysplasia is a condition where the hip joint doesn't form properly, affecting the ball-and-socket joint of the hip. Early detection and treatment are crucial for optimal outcomes.</p>
+
+      <h3>Risk Factors</h3>
+      <ul>
+        <li>Family history of DDH</li>
+        <li>Breech presentation</li>
+        <li>Female gender</li>
+        <li>First-born children</li>
+        <li>Oligohydramnios (low amniotic fluid)</li>
+      </ul>
+
+      <h3>Screening and Diagnosis</h3>
+      <p>Early detection involves:</p>
+      <ul>
+        <li>Physical examination at birth</li>
+        <li>Ultrasound screening (0-6 months)</li>
+        <li>X-ray evaluation (after 6 months)</li>
+        <li>Clinical assessment of hip stability</li>
+      </ul>
+
+      <h3>Treatment by Age</h3>
+      <h4>Newborn to 6 Months</h4>
+      <ul>
+        <li>Pavlik harness (most common)</li>
+        <li>Regular monitoring</li>
+        <li>Parent education</li>
+      </ul>
+
+      <h4>6 Months to 2 Years</h4>
+      <ul>
+        <li>Closed reduction and casting</li>
+        <li>Open reduction if necessary</li>
+        <li>Surgical intervention</li>
+      </ul>
+
+      <h4>After 2 Years</h4>
+      <ul>
+        <li>Osteotomy procedures</li>
+        <li>Complex reconstructive surgery</li>
+        <li>Long-term follow-up</li>
+      </ul>
+
+      <h3>Outcomes and Prognosis</h3>
+      <p>With over 500 pediatric hip surgeries performed, early treatment typically results in:</p>
+      <ul>
+        <li>Normal hip development</li>
+        <li>Full range of motion</li>
+        <li>Prevention of arthritis</li>
+        <li>Normal activity levels</li>
+      </ul>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-11-28',
+    category: 'Pediatric Orthopedics',
+    tags: ['hip dysplasia', 'pediatric orthopedics', 'infant hip', 'Pavlik harness'],
+    readTime: 8,
+    image: 'https://images.pexels.com/photos/7659570/pexels-photo-7659570.jpeg'
+  },
+
+  // Foot & Ankle
+  {
+    id: '7',
+    title: 'Clubfoot Treatment: The Ponseti Method Success Story',
+    slug: 'clubfoot-ponseti-method-treatment',
+    excerpt: 'Learn about the revolutionary Ponseti method for treating clubfoot and its remarkable success rates.',
+    content: `
+      <h2>Understanding Clubfoot</h2>
+      <p>Clubfoot (congenital talipes equinovarus) is a birth defect where one or both feet are twisted inward and downward. It affects approximately 1 in 1,000 births worldwide.</p>
+
+      <h3>The Ponseti Method</h3>
+      <p>The Ponseti method, developed by Dr. Ignacio Ponseti, has revolutionized clubfoot treatment with success rates exceeding 95%.</p>
+
+      <h4>Treatment Phases</h4>
+      <ol>
+        <li><strong>Casting Phase (6-8 weeks):</strong> Weekly gentle manipulation and casting</li>
+        <li><strong>Tenotomy (if needed):</strong> Minor procedure to release tight Achilles tendon</li>
+        <li><strong>Bracing Phase (4-5 years):</strong> Special shoes and bar to maintain correction</li>
+      </ol>
+
+      <h3>Treatment Timeline</h3>
+      <ul>
+        <li><strong>Start:</strong> Within first few weeks of life</li>
+        <li><strong>Casting:</strong> 6-8 weekly sessions</li>
+        <li><strong>Tenotomy:</strong> Around 6-8 weeks if needed</li>
+        <li><strong>Bracing:</strong> Full-time initially, then nights and naps</li>
+      </ul>
+
+      <h3>Success Factors</h3>
+      <ul>
+        <li>Early initiation of treatment</li>
+        <li>Proper casting technique</li>
+        <li>Compliance with bracing protocol</li>
+        <li>Regular follow-up care</li>
+      </ul>
+
+      <h3>Long-term Outcomes</h3>
+      <p>With over 350 successful clubfoot corrections performed:</p>
+      <ul>
+        <li>Normal foot function</li>
+        <li>Ability to participate in sports</li>
+        <li>Minimal long-term complications</li>
+        <li>Excellent cosmetic results</li>
+      </ul>
+
+      <h3>Family Support and Education</h3>
+      <p>Successful treatment requires:</p>
+      <ul>
+        <li>Understanding the treatment process</li>
+        <li>Commitment to bracing protocol</li>
+        <li>Regular follow-up appointments</li>
+        <li>Emotional support for families</li>
+      </ul>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-11-25',
+    category: 'Pediatric Orthopedics',
+    tags: ['clubfoot', 'Ponseti method', 'pediatric foot', 'congenital deformity'],
+    readTime: 7,
+    image: 'https://images.pexels.com/photos/7659571/pexels-photo-7659571.jpeg'
+  },
+
+  // Wrist & Hand
+  {
+    id: '8',
+    title: 'Wrist Fractures: Modern Treatment Approaches',
+    slug: 'wrist-fractures-treatment-guide',
+    excerpt: 'Comprehensive guide to wrist fracture treatment, from simple casts to complex surgical reconstruction.',
+    content: `
+      <h2>Types of Wrist Fractures</h2>
+      <p>Wrist fractures are among the most common orthopedic injuries, particularly affecting the distal radius and scaphoid bones.</p>
+
+      <h3>Common Fracture Types</h3>
+      <ul>
+        <li><strong>Distal radius fractures:</strong> Most common wrist fracture</li>
+        <li><strong>Scaphoid fractures:</strong> Often missed initially</li>
+        <li><strong>Ulnar fractures:</strong> Usually associated with radius fractures</li>
+        <li><strong>Carpal bone fractures:</strong> Less common but significant</li>
+      </ul>
+
+      <h3>Mechanism of Injury</h3>
+      <ul>
+        <li>Fall on outstretched hand (FOOSH)</li>
+        <li>High-energy trauma</li>
+        <li>Sports-related injuries</li>
+        <li>Osteoporotic fractures in elderly</li>
+      </ul>
+
+      <h3>Treatment Decisions</h3>
+      <p>Treatment depends on several factors:</p>
+      <ul>
+        <li>Fracture pattern and displacement</li>
+        <li>Patient age and activity level</li>
+        <li>Bone quality</li>
+        <li>Associated injuries</li>
+      </ul>
+
+      <h4>Non-Surgical Treatment</h4>
+      <ul>
+        <li>Closed reduction and casting</li>
+        <li>Immobilization protocols</li>
+        <li>Regular monitoring</li>
+        <li>Early mobilization when appropriate</li>
+      </ul>
+
+      <h4>Surgical Treatment</h4>
+      <ul>
+        <li>Open reduction and internal fixation</li>
+        <li>Plate and screw fixation</li>
+        <li>External fixation for complex cases</li>
+        <li>Arthroscopic assistance</li>
+      </ul>
+
+      <h3>Rehabilitation and Recovery</h3>
+      <ul>
+        <li>Early finger motion</li>
+        <li>Progressive wrist mobilization</li>
+        <li>Strengthening exercises</li>
+        <li>Functional training</li>
+      </ul>
+
+      <h3>Complications and Prevention</h3>
+      <ul>
+        <li>Stiffness and loss of motion</li>
+        <li>Malunion or nonunion</li>
+        <li>Tendon complications</li>
+        <li>Post-traumatic arthritis</li>
+      </ul>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-11-22',
+    category: 'Hand & Wrist',
+    tags: ['wrist fracture', 'distal radius', 'scaphoid', 'hand surgery'],
+    readTime: 8,
+    image: 'https://images.pexels.com/photos/7659572/pexels-photo-7659572.jpeg'
+  },
+
+  // General Orthopedics
+  {
+    id: '9',
+    title: 'Arthroscopic Surgery: Minimally Invasive Joint Treatment',
+    slug: 'arthroscopic-surgery-benefits',
+    excerpt: 'Discover the advantages of arthroscopic surgery and how it has revolutionized orthopedic treatment.',
+    content: `
+      <h2>What is Arthroscopic Surgery?</h2>
+      <p>Arthroscopic surgery is a minimally invasive surgical technique that uses a small camera (arthroscope) and specialized instruments to diagnose and treat joint problems through tiny incisions.</p>
+
+      <h3>Advantages of Arthroscopic Surgery</h3>
+      <ul>
+        <li>Smaller incisions and minimal scarring</li>
+        <li>Reduced pain and swelling</li>
+        <li>Faster recovery times</li>
+        <li>Lower risk of infection</li>
+        <li>Better visualization of joint structures</li>
+        <li>Outpatient procedure in many cases</li>
+      </ul>
+
+      <h3>Common Arthroscopic Procedures</h3>
+      <h4>Knee Arthroscopy</h4>
+      <ul>
+        <li>Meniscus repair or removal</li>
+        <li>ACL reconstruction</li>
+        <li>Cartilage procedures</li>
+        <li>Loose body removal</li>
+      </ul>
+
+      <h4>Shoulder Arthroscopy</h4>
+      <ul>
+        <li>Rotator cuff repair</li>
+        <li>Labral repair</li>
+        <li>Subacromial decompression</li>
+        <li>Capsular release</li>
+      </ul>
+
+      <h4>Hip Arthroscopy</h4>
+      <ul>
+        <li>Labral repair</li>
+        <li>Femoroacetabular impingement treatment</li>
+        <li>Loose body removal</li>
+        <li>Synovectomy</li>
+      </ul>
+
+      <h3>Patient Selection</h3>
+      <p>Ideal candidates for arthroscopic surgery include:</p>
+      <ul>
+        <li>Patients with specific joint pathology</li>
+        <li>Those who have failed conservative treatment</li>
+        <li>Active individuals seeking quick recovery</li>
+        <li>Patients with good overall health</li>
+      </ul>
+
+      <h3>Recovery and Rehabilitation</h3>
+      <ul>
+        <li>Immediate post-operative care</li>
+        <li>Early mobilization protocols</li>
+        <li>Progressive physical therapy</li>
+        <li>Return to activity guidelines</li>
+      </ul>
+
+      <h3>Success Rates and Outcomes</h3>
+      <p>With over 5,000 arthroscopic procedures performed, patients typically experience:</p>
+      <ul>
+        <li>High success rates (>90%)</li>
+        <li>Rapid return to function</li>
+        <li>Excellent patient satisfaction</li>
+        <li>Low complication rates</li>
+      </ul>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-11-20',
+    category: 'General Orthopedics',
+    tags: ['arthroscopic surgery', 'minimally invasive', 'joint surgery', 'sports medicine'],
+    readTime: 9,
+    image: 'https://images.pexels.com/photos/7659573/pexels-photo-7659573.jpeg'
+  },
+
+  {
+    id: '10',
+    title: 'Sports Injury Prevention: A Comprehensive Guide',
+    slug: 'sports-injury-prevention-guide',
+    excerpt: 'Essential strategies for preventing sports injuries and maintaining peak athletic performance.',
+    content: `
+      <h2>Understanding Sports Injuries</h2>
+      <p>Sports injuries can be devastating for athletes at any level. Understanding the mechanisms of injury and implementing proper prevention strategies is crucial for long-term athletic success.</p>
+
+      <h3>Common Sports Injuries</h3>
+      <ul>
+        <li>ACL tears and knee injuries</li>
+        <li>Shoulder impingement and rotator cuff injuries</li>
+        <li>Ankle sprains</li>
+        <li>Tennis and golfer's elbow</li>
+        <li>Stress fractures</li>
+        <li>Muscle strains and pulls</li>
+      </ul>
+
+      <h3>Risk Factors</h3>
+      <ul>
+        <li>Previous injury history</li>
+        <li>Inadequate conditioning</li>
+        <li>Poor technique</li>
+        <li>Fatigue and overtraining</li>
+        <li>Environmental factors</li>
+        <li>Equipment issues</li>
+      </ul>
+
+      <h3>Prevention Strategies</h3>
+      <h4>Proper Conditioning</h4>
+      <ul>
+        <li>Sport-specific training programs</li>
+        <li>Strength and flexibility training</li>
+        <li>Cardiovascular conditioning</li>
+        <li>Balance and proprioception training</li>
+      </ul>
+
+      <h4>Technique and Training</h4>
+      <ul>
+        <li>Proper coaching and instruction</li>
+        <li>Gradual progression of training intensity</li>
+        <li>Adequate rest and recovery</li>
+        <li>Cross-training activities</li>
+      </ul>
+
+      <h4>Equipment and Environment</h4>
+      <ul>
+        <li>Proper protective equipment</li>
+        <li>Well-maintained playing surfaces</li>
+        <li>Appropriate footwear</li>
+        <li>Environmental awareness</li>
+      </ul>
+
+      <h3>Injury Management</h3>
+      <h4>Immediate Care (RICE Protocol)</h4>
+      <ul>
+        <li><strong>Rest:</strong> Avoid further injury</li>
+        <li><strong>Ice:</strong> Reduce swelling and pain</li>
+        <li><strong>Compression:</strong> Support injured area</li>
+        <li><strong>Elevation:</strong> Minimize swelling</li>
+      </ul>
+
+      <h4>When to Seek Medical Attention</h4>
+      <ul>
+        <li>Severe pain or inability to bear weight</li>
+        <li>Obvious deformity</li>
+        <li>Numbness or tingling</li>
+        <li>Signs of infection</li>
+        <li>No improvement after 48-72 hours</li>
+      </ul>
+
+      <h3>Return to Sport</h3>
+      <p>Safe return to athletic activity requires:</p>
+      <ul>
+        <li>Complete healing of injured tissues</li>
+        <li>Full range of motion</li>
+        <li>Adequate strength and endurance</li>
+        <li>Sport-specific functional testing</li>
+        <li>Psychological readiness</li>
+      </ul>
+    `,
+    author: 'Op. Dr. Gürkan Eryanılmaz',
+    publishedAt: '2024-11-18',
+    category: 'Sports Medicine',
+    tags: ['sports injury', 'injury prevention', 'athletic performance', 'sports medicine'],
+    readTime: 10,
+    image: 'https://images.pexels.com/photos/7659574/pexels-photo-7659574.jpeg'
   }
 ];
 
@@ -144,6 +664,12 @@ export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPosts.find(post => post.slug === slug);
 };
 
-export const getBlogPostsByCategory = (categoryId: number): BlogPost[] => {
-  return blogPosts.filter(post => post.category.id === categoryId);
+export const getBlogPostsByCategory = (category: string): BlogPost[] => {
+  return blogPosts.filter(post => post.category === category);
+};
+
+export const getRecentBlogPosts = (limit: number = 5): BlogPost[] => {
+  return blogPosts
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, limit);
 };
