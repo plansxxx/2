@@ -3,21 +3,17 @@ src/pages/HomePage.tsx
 src/pages/AboutPage.tsx
 src/pages/ServicesPage.tsx
 src/pages/ServiceDetailPage.tsx
-src/pages/BlogPage.tsx
-src/pages/BlogPostPage.tsx
 src/pages/TestimonialsPage.tsx
 src/pages/ContactPage.tsx
 src/pages/NotFoundPage.tsx
 
 # Components not related to symptoms & treatments
 src/components/home/
-src/components/blog/
 src/components/contact/
 src/components/services/
 
 # Data files not needed for symptoms & treatments
 src/data/services.ts
-src/data/blogPosts.ts
 src/data/testimonials.ts
 
 # Layouts (keeping MainLayout as it's needed for routing)
