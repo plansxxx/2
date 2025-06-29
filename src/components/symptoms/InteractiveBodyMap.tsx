@@ -110,116 +110,116 @@ const InteractiveBodyMap = () => {
                   className="w-full h-auto max-h-[600px] object-contain mx-auto"
                 />
                 
-                {/* Interactive overlay SVG for clickable areas - precisely positioned */}
+                {/* Interactive overlay SVG for clickable areas - precisely positioned to match your image */}
                 <svg 
                   viewBox="0 0 400 800" 
                   className="absolute inset-0 w-full h-full"
                   style={{ pointerEvents: 'none' }}
                 >
-                  {/* Interactive Body Parts - Front View - Precisely positioned based on your SVG */}
+                  {/* Interactive Body Parts - Front View - Positioned exactly as shown in your image */}
                   
-                  {/* Left Shoulder */}
+                  {/* Left Shoulder - positioned on the shoulder joint */}
                   <ellipse 
-                    cx="150" cy="160" rx="28" ry="22"
+                    cx="135" cy="180" rx="25" ry="20"
                     style={{ ...getBodyPartStyle('shoulder'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('shoulder')}
                     onMouseEnter={(e) => handleBodyPartHover('shoulder', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Shoulder */}
+                  {/* Right Shoulder - positioned on the shoulder joint */}
                   <ellipse 
-                    cx="250" cy="160" rx="28" ry="22"
+                    cx="265" cy="180" rx="25" ry="20"
                     style={{ ...getBodyPartStyle('shoulder'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('shoulder')}
                     onMouseEnter={(e) => handleBodyPartHover('shoulder', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Left Elbow */}
+                  {/* Left Elbow - positioned on the elbow joint */}
                   <circle 
-                    cx="110" cy="240" r="16"
+                    cx="100" cy="280" r="15"
                     style={{ ...getBodyPartStyle('elbow'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('elbow')}
                     onMouseEnter={(e) => handleBodyPartHover('elbow', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Elbow */}
+                  {/* Right Elbow - positioned on the elbow joint */}
                   <circle 
-                    cx="290" cy="240" r="16"
+                    cx="300" cy="280" r="15"
                     style={{ ...getBodyPartStyle('elbow'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('elbow')}
                     onMouseEnter={(e) => handleBodyPartHover('elbow', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Left Wrist/Hand */}
+                  {/* Left Wrist/Hand - positioned on the wrist area */}
                   <ellipse 
-                    cx="85" cy="340" rx="14" ry="18"
+                    cx="75" cy="380" rx="12" ry="16"
                     style={{ ...getBodyPartStyle('wrist-hand'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('wrist-hand')}
                     onMouseEnter={(e) => handleBodyPartHover('wrist-hand', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Wrist/Hand */}
+                  {/* Right Wrist/Hand - positioned on the wrist area */}
                   <ellipse 
-                    cx="315" cy="340" rx="14" ry="18"
+                    cx="325" cy="380" rx="12" ry="16"
                     style={{ ...getBodyPartStyle('wrist-hand'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('wrist-hand')}
                     onMouseEnter={(e) => handleBodyPartHover('wrist-hand', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Hip Area */}
+                  {/* Hip Area - positioned on the pelvis/hip region */}
                   <ellipse 
-                    cx="200" cy="350" rx="32" ry="16"
+                    cx="200" cy="320" rx="30" ry="15"
                     style={{ ...getBodyPartStyle('hip'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('hip')}
                     onMouseEnter={(e) => handleBodyPartHover('hip', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Left Knee */}
+                  {/* Left Knee - positioned on the knee joint */}
                   <circle 
-                    cx="180" cy="500" r="18"
+                    cx="175" cy="480" r="16"
                     style={{ ...getBodyPartStyle('knee'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('knee')}
                     onMouseEnter={(e) => handleBodyPartHover('knee', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Knee */}
+                  {/* Right Knee - positioned on the knee joint */}
                   <circle 
-                    cx="220" cy="500" r="18"
+                    cx="225" cy="480" r="16"
                     style={{ ...getBodyPartStyle('knee'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('knee')}
                     onMouseEnter={(e) => handleBodyPartHover('knee', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Left Foot/Ankle */}
+                  {/* Left Foot/Ankle - positioned on the ankle area */}
                   <ellipse 
-                    cx="175" cy="650" rx="16" ry="22"
+                    cx="165" cy="620" rx="14" ry="18"
                     style={{ ...getBodyPartStyle('foot-ankle'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('foot-ankle')}
                     onMouseEnter={(e) => handleBodyPartHover('foot-ankle', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Foot/Ankle */}
+                  {/* Right Foot/Ankle - positioned on the ankle area */}
                   <ellipse 
-                    cx="225" cy="650" rx="16" ry="22"
+                    cx="235" cy="620" rx="14" ry="18"
                     style={{ ...getBodyPartStyle('foot-ankle'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('foot-ankle')}
                     onMouseEnter={(e) => handleBodyPartHover('foot-ankle', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Pediatric Indicator */}
+                  {/* Pediatric Indicator - positioned to the side */}
                   <circle 
-                    cx="300" cy="580" r="20"
+                    cx="320" cy="520" r="18"
                     style={{ ...getBodyPartStyle('pediatric-orthopedics'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('pediatric-orthopedics')}
                     onMouseEnter={(e) => handleBodyPartHover('pediatric-orthopedics', e)}
@@ -227,7 +227,7 @@ const InteractiveBodyMap = () => {
                   />
                   
                   {/* Pediatric Icon */}
-                  <text x="300" y="587" textAnchor="middle" fontSize="14" fill="#92400e" pointerEvents="none">👶</text>
+                  <text x="320" y="526" textAnchor="middle" fontSize="12" fill="#92400e" pointerEvents="none">👶</text>
                 </svg>
               </div>
             </div>
@@ -247,107 +247,107 @@ const InteractiveBodyMap = () => {
                   className="w-full h-auto max-h-[600px] object-contain mx-auto"
                 />
                 
-                {/* Interactive overlay SVG for clickable areas - precisely positioned */}
+                {/* Interactive overlay SVG for clickable areas - precisely positioned to match your image */}
                 <svg 
                   viewBox="0 0 400 800" 
                   className="absolute inset-0 w-full h-full"
                   style={{ pointerEvents: 'none' }}
                 >
-                  {/* Interactive Body Parts - Back View - Precisely positioned based on your SVG */}
+                  {/* Interactive Body Parts - Back View - Positioned exactly as shown in your image */}
                   
-                  {/* Left Shoulder Blade */}
+                  {/* Left Shoulder Blade - positioned on the scapula */}
                   <ellipse 
-                    cx="150" cy="160" rx="22" ry="28"
+                    cx="135" cy="180" rx="20" ry="25"
                     style={{ ...getBodyPartStyle('shoulder'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('shoulder')}
                     onMouseEnter={(e) => handleBodyPartHover('shoulder', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Shoulder Blade */}
+                  {/* Right Shoulder Blade - positioned on the scapula */}
                   <ellipse 
-                    cx="250" cy="160" rx="22" ry="28"
+                    cx="265" cy="180" rx="20" ry="25"
                     style={{ ...getBodyPartStyle('shoulder'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('shoulder')}
                     onMouseEnter={(e) => handleBodyPartHover('shoulder', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Left Elbow - Back */}
+                  {/* Left Elbow - Back - positioned on the elbow */}
                   <circle 
-                    cx="110" cy="240" r="16"
+                    cx="100" cy="280" r="15"
                     style={{ ...getBodyPartStyle('elbow'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('elbow')}
                     onMouseEnter={(e) => handleBodyPartHover('elbow', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Elbow - Back */}
+                  {/* Right Elbow - Back - positioned on the elbow */}
                   <circle 
-                    cx="290" cy="240" r="16"
+                    cx="300" cy="280" r="15"
                     style={{ ...getBodyPartStyle('elbow'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('elbow')}
                     onMouseEnter={(e) => handleBodyPartHover('elbow', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Left Wrist - Back */}
+                  {/* Left Wrist - Back - positioned on the wrist */}
                   <ellipse 
-                    cx="85" cy="340" rx="14" ry="18"
+                    cx="75" cy="380" rx="12" ry="16"
                     style={{ ...getBodyPartStyle('wrist-hand'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('wrist-hand')}
                     onMouseEnter={(e) => handleBodyPartHover('wrist-hand', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Wrist - Back */}
+                  {/* Right Wrist - Back - positioned on the wrist */}
                   <ellipse 
-                    cx="315" cy="340" rx="14" ry="18"
+                    cx="325" cy="380" rx="12" ry="16"
                     style={{ ...getBodyPartStyle('wrist-hand'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('wrist-hand')}
                     onMouseEnter={(e) => handleBodyPartHover('wrist-hand', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Lower Back/Hip Area */}
+                  {/* Lower Back/Hip Area - positioned on the lower back/sacrum */}
                   <ellipse 
-                    cx="200" cy="320" rx="36" ry="20"
+                    cx="200" cy="300" rx="32" ry="18"
                     style={{ ...getBodyPartStyle('hip'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('hip')}
                     onMouseEnter={(e) => handleBodyPartHover('hip', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Left Knee - Back */}
+                  {/* Left Knee - Back - positioned on the back of knee */}
                   <circle 
-                    cx="180" cy="500" r="18"
+                    cx="175" cy="480" r="16"
                     style={{ ...getBodyPartStyle('knee'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('knee')}
                     onMouseEnter={(e) => handleBodyPartHover('knee', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Knee - Back */}
+                  {/* Right Knee - Back - positioned on the back of knee */}
                   <circle 
-                    cx="220" cy="500" r="18"
+                    cx="225" cy="480" r="16"
                     style={{ ...getBodyPartStyle('knee'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('knee')}
                     onMouseEnter={(e) => handleBodyPartHover('knee', e)}
                     onMouseLeave={closeTooltip}
                   />
 
-                  {/* Left Foot/Ankle - Back */}
+                  {/* Left Foot/Ankle - Back - positioned on the back of ankle */}
                   <ellipse 
-                    cx="175" cy="650" rx="16" ry="22"
+                    cx="165" cy="620" rx="14" ry="18"
                     style={{ ...getBodyPartStyle('foot-ankle'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('foot-ankle')}
                     onMouseEnter={(e) => handleBodyPartHover('foot-ankle', e)}
                     onMouseLeave={closeTooltip}
                   />
                   
-                  {/* Right Foot/Ankle - Back */}
+                  {/* Right Foot/Ankle - Back - positioned on the back of ankle */}
                   <ellipse 
-                    cx="225" cy="650" rx="16" ry="22"
+                    cx="235" cy="620" rx="14" ry="18"
                     style={{ ...getBodyPartStyle('foot-ankle'), pointerEvents: 'auto' }}
                     onClick={() => handleBodyPartClick('foot-ankle')}
                     onMouseEnter={(e) => handleBodyPartHover('foot-ankle', e)}
