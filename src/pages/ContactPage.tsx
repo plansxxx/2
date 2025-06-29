@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Instagram, MessageCircle } from 'lucide-react';
 import SectionHeading from '../components/common/SectionHeading';
 import ContactForm from '../components/contact/ContactForm';
 
@@ -73,19 +73,48 @@ const ContactPage = () => {
                     </div>
                   </li>
                   <li className="flex items-start">
-                    <Instagram size={24} className="text-primary-600 mr-4 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1">Social Media</h3>
-                      <p className="text-gray-700">
-                        <a 
-                          href="https://www.instagram.com/uzmantravmatolojiortoped" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="hover:text-primary-600 transition-colors"
-                        >
-                          @uzmantravmatolojiortoped
-                        </a>
-                      </p>
+                    <div className="flex space-x-4 mt-1">
+                      <Instagram size={24} className="text-primary-600 flex-shrink-0" />
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary-600 flex-shrink-0">
+                        <path d="M9.5 2v11.5a3.5 3.5 0 1 1-3.5-3.5 3.6 3.6 0 0 1 .9.1V9a6.5 6.5 0 1 0 5.7 6.5V7.6a7.2 7.2 0 0 0 3.4.9V5.4a3.9 3.9 0 0 1-3.4-3.9V2z"/>
+                      </svg>
+                      <MessageCircle size={24} className="text-primary-600 flex-shrink-0" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="font-semibold text-lg mb-1">Social Media & Live Support</h3>
+                      <div className="space-y-2">
+                        <p className="text-gray-700">
+                          <a 
+                            href="https://www.instagram.com/uzmantravmatolojiortoped" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hover:text-primary-600 transition-colors"
+                          >
+                            Instagram: @uzmantravmatolojiortoped
+                          </a>
+                        </p>
+                        <p className="text-gray-700">
+                          <a 
+                            href="https://www.tiktok.com/@opdrgeryanilmaz" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hover:text-primary-600 transition-colors"
+                          >
+                            TikTok: @opdrgeryanilmaz
+                          </a>
+                        </p>
+                        <p className="text-gray-700">
+                          <a 
+                            href="https://wa.me/994553977874" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hover:text-primary-600 transition-colors inline-flex items-center"
+                          >
+                            <MessageCircle size={16} className="mr-1" />
+                            WhatsApp Live Support
+                          </a>
+                        </p>
+                      </div>
                     </div>
                   </li>
                 </ul>

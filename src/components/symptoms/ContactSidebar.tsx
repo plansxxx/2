@@ -14,6 +14,7 @@ const ContactSidebar = memo(() => {
   const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -24,18 +25,47 @@ const ContactSidebar = memo(() => {
 
   const onSubmit = useCallback(async (data: FormData) => {
     setIsSubmitting(true);
+    setSubmitError(null);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    console.log('Form submitted:', data);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    reset();
+    try {
+      // Updated URL with your new deployment
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvOF5ch-QWihWh3K_Azd7fzuZhPCLROGTNXIdpXOXhne8MSiW7T__k7k-tp5qExjvF/exec';
+      
+      // Create URLSearchParams for proper form encoding
+      const formData = new URLSearchParams();
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone || '');
+      formData.append('message', data.message);
+      
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString(),
+      });
+      
+      // Check if the request was successful
+      if (response.ok) {
+        setIsSubmitted(true);
+        reset();
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError('Failed to send message. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
     
     // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
-  }, [reset]);
+    if (isSubmitted) {
+      setTimeout(() => setIsSubmitted(false), 3000);
+    }
+  }, [reset, isSubmitted]);
 
   return (
     <div className="space-y-6 sticky top-24">
@@ -57,6 +87,12 @@ const ContactSidebar = memo(() => {
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            {submitError && (
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 text-sm">
+                {submitError}
+              </div>
+            )}
+
             <div>
               <label className="form-label">
                 {t('contact.form.name')}
