@@ -1,67 +1,55 @@
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock } from 'lucide-react';
-import { BlogPost } from '../../data/blogPosts';
+import { useTranslation } from 'react-i18next';
+import { Calendar, User, ArrowRight } from 'lucide-react';
 import { formatDate } from '../../utils/dateFormatter';
+import { BlogPost } from '../../data/blogPosts';
 
 interface BlogCardProps {
   post: BlogPost;
-  featured?: boolean;
 }
 
-const BlogCard = ({ post, featured = false }: BlogCardProps) => {
+const BlogCard = ({ post }: BlogCardProps) => {
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as 'az' | 'en' | 'tr';
-  
+  const currentLang = i18n.language as 'en' | 'tr' | 'az';
+
   return (
-    <article 
-      className={`bg-white rounded-lg shadow-sm overflow-hidden group ${
-        featured ? 'md:col-span-2' : ''
-      }`}
-      data-aos="fade-up"
-    >
+    <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="relative">
-        <Link to={`/blog/${post.slug}`}>
-          <img 
-            src={post.image} 
-            alt={post.title[currentLang]} 
-            className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        </Link>
-        
-        <div className="absolute top-4 left-4 bg-primary-600 text-white text-xs font-semibold uppercase tracking-wider py-1 px-2 rounded">
-          {post.category.name[currentLang]}
+        <img
+          src={post.image}
+          alt={post.title[currentLang]}
+          className="w-full h-48 object-cover"
+        />
+        <div className="absolute top-4 left-4">
+          <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+            {post.category.name[currentLang]}
+          </span>
         </div>
       </div>
       
       <div className="p-6">
         <div className="flex items-center text-sm text-gray-500 mb-3">
-          <div className="flex items-center mr-4">
-            <Calendar size={16} className="mr-1" />
-            {formatDate(post.date, currentLang)}
-          </div>
-          <div className="flex items-center">
-            <Clock size={16} className="mr-1" />
-            {post.readTime} {currentLang === 'en' ? 'min read' : currentLang === 'tr' ? 'dk okuma' : 'dəq oxuma'}
-          </div>
+          <Calendar size={16} className="mr-2" />
+          <span>{formatDate(post.date, currentLang)}</span>
+          <span className="mx-2">•</span>
+          <User size={16} className="mr-2" />
+          <span>{post.author}</span>
         </div>
         
-        <h3 className="text-xl font-semibold mb-2">
-          <Link to={`/blog/${post.slug}`} className="hover:text-primary-600 transition-colors">
-            {post.title[currentLang]}
-          </Link>
+        <h3 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+          {post.title[currentLang]}
         </h3>
         
         <p className="text-gray-600 mb-4 line-clamp-3">
           {post.excerpt[currentLang]}
         </p>
         
-        <Link 
+        <Link
           to={`/blog/${post.slug}`}
-          className="text-primary-600 font-medium inline-flex items-center hover:text-primary-700"
+          className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors"
         >
-          {t('home.blog.readMore')}
-          <span className="ml-1">→</span>
+          {t('blog.readMore')}
+          <ArrowRight size={16} className="ml-2" />
         </Link>
       </div>
     </article>
